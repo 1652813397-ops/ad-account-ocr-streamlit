@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  ad-ocr-web:
+    build: .
+    container_name: ad-ocr-web
+    ports:
+      - "8501:8501"
+    environment:
+      APP_AUTH_ENABLED: "true"
+      APP_USERNAME: "admin"
+      APP_ACCESS_CODE: "962464"
+      PUBLIC_BASE_URL: "https://your-domain.example.com"
+      FLAGS_use_mkldnn: "0"
+    restart: unless-stopped

@@ -1,0 +1,131 @@
+settings:
+  alias_match_threshold: 82
+  row_tolerance_ratio: 0.75
+  max_vertical_gap_ratio: 4.5
+  max_horizontal_gap_ratio: 8.0
+  empty_numeric_as_zero: true
+  numeric_corrections:
+    O: "0"
+    o: "0"
+    D: "0"
+    I: "1"
+    l: "1"
+    "|": "1"
+    S: "5"
+    B: "8"
+
+sources:
+  meta:
+    display_name: Meta
+    keywords:
+      - Meta
+      - 投放
+      - 数据透视表
+      - 组合细分条件
+      - 广告管理工具
+      - 广告账户
+
+fields:
+  account_id:
+    display_name: 账户
+    output_order: 1
+    data_type: string
+    strategies:
+      - inline
+      - same_line
+      - below
+      - regex_global
+    aliases:
+      - 账户ID
+      - 帐户ID
+      - 广告账户ID
+      - 广告帐户ID
+      - 账户编号
+      - 帐户编号
+      - ID
+    source_aliases:
+      meta:
+        - 账户ID
+        - 广告账户ID
+    regex_patterns:
+      - '(?<!\d)\d{6,20}(?!\d)'
+
+  spend:
+    display_name: 消耗
+    output_order: 2
+    data_type: float
+    strategies:
+      - inline
+      - same_line
+      - below
+    aliases:
+      - 消耗
+      - 花费
+      - 总花费
+      - 已花费
+      - 已花费金额
+    source_aliases:
+      meta:
+        - 已花费金额
+        - 总花费
+    regex_patterns:
+      - '[-+¥￥$€£]?\s*[0-9OolISB,]+(?:\.[0-9OolISB]+)?'
+
+  registrations:
+    display_name: 注册
+    output_order: 3
+    data_type: int
+    strategies:
+      - inline
+      - same_line
+      - below
+    aliases:
+      - 注册
+      - 注册量
+      - 完成注册
+      - 完成注册次数
+
+  subscriptions:
+    display_name: 订阅/购物
+    output_order: 4
+    data_type: int
+    strategies:
+      - inline
+      - same_line
+      - below
+    aliases:
+      - 订阅
+      - 购物
+      - 购物次数
+      - 购买
+      - 下单
+      - 成交
+      - 付费
+
+  impressions:
+    display_name: 展示
+    output_order: 5
+    data_type: int
+    strategies:
+      - inline
+      - same_line
+      - below
+    aliases:
+      - 展示
+      - 展示次数
+      - 曝光
+
+  clicks:
+    display_name: 点击
+    output_order: 6
+    data_type: int
+    strategies:
+      - inline
+      - same_line
+      - below
+    aliases:
+      - 点击
+      - 点击量
+      - 点击量（全部）
+      - 点击量(全部)
+      - 链接点击
