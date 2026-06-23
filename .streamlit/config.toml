@@ -1,0 +1,10 @@
+[server]
+headless = true
+maxUploadSize = 200
+enableStaticServing = false
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"
